@@ -1,0 +1,19 @@
+{
+    "name": "jorgevalentim/ecommerce",
+    "authors": [
+        {
+            "name": "Jorge Valentim",
+            "email": "jorgevalentimp@outlook.com"
+        }
+    ],
+    "require": {
+    	"phpmailer/phpmailer": "~6.1",
+    	"slim/slim":"2.0",
+    	"rain/raintpl": ">=3.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "vendor\\hcodebr\\php-classes\\src"
+        }
+    }
+}
