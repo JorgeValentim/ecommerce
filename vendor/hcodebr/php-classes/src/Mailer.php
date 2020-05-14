@@ -8,6 +8,7 @@ class Mailer {
 
     const USERNAME = "email";
     const PASSWORD = "senha";
+    const NAME = "Hcode Store";
 
     private $mail;
 
@@ -21,7 +22,7 @@ class Mailer {
         
         Tpl::configure( $config );
 
-        $this->tpl = new Tpl;
+        $tpl = new Tpl;
 
         foreach ($data as $key => $value) {
             $tpl->assing($key, $value);
@@ -75,7 +76,7 @@ class Mailer {
 
         //Read an HTML message body from an external file, convert referenced images to embedded,
         //convert HTML into a basic plain-text alternative body
-        $this->mail->msgHTML(file_get_contents('contents.html'), __DIR__);
+        $this->mail->msgHTML($html);
 
         //Replace the plain text body with one created manually
         $this->mail->AltBody = 'Exemplos de código do PHPMailer';

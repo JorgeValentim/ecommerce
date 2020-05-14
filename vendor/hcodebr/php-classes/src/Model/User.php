@@ -176,7 +176,7 @@ class User extends Model{
             INNER JOIN tb_users b USING(iduser)
             INNER JOIN tb_persons c USING(idperson)
             WHERE
-                a.idrecovery = :code
+                a.idrecovery = :idrecovery
                 AND
                 a.dtrecovery IS NULL
                 AND
@@ -193,7 +193,7 @@ class User extends Model{
         }
 
     }
-    public static function setFogotUsed($idrecovery)
+    public static function setForgotUsed($idrecovery)
     {
         $sql = new Sql();
 

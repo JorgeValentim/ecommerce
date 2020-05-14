@@ -191,7 +191,7 @@ $app->post("/admin/forgot/reset", function(){
 		"cost"=>12
 	]);
 
-	$user->setPassword($_POST["password"]);
+	$user->setPassword($password);
 
 	$page = new PageAdmin([
 		"header"=>false,
@@ -272,6 +272,18 @@ $app->post("/admin/categories/:idcategory", function($idcategory){
 
 	header('Location: /admin/categories');
 	exit;
+});
+
+$app->get("/categories/:idcategory", function($idcategory){
+	$category = new Category();
+
+	$category->get((int)$idcategory);
+
+	$page = new Page();
+
+	$page->setTpl("category", [
+		'category'=>$category->getValues()
+	]);
 });
 
 $app->run();
