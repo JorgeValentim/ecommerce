@@ -2,6 +2,7 @@
 
 session_start();
 require_once("vendor/autoload.php");
+require_once("functions.php");
 
 use \Slim\Slim;
 use \Hcode\Page;
@@ -15,10 +16,14 @@ $app = new Slim();
 $app->config('debug', true);
 
 $app->get('/', function() {
+
+	$products = Product::listAll();
 	
 	$page = new Page();
 
-	$page->setTpl("index");
+	$page->setTpl("index", [
+		'products'=>Product::checkList($products)
+	]);
 
 });
 
