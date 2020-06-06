@@ -15,7 +15,7 @@ class Address extends Model {
 
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, "https://viacep.com.br/ws/01001000/json/");
+        curl_setopt($ch, CURLOPT_URL, "https://viacep.com.br/ws/$nrcep/json/");
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -69,7 +69,7 @@ class Address extends Model {
     }
     public static function getMsgError()
     {
-        $msg = (isset($_SESSION[Address::SESSION_ERROR])) && $_SESSION[Address::SESSION_ERROR] ? $_SESSION[Address::SESSION_ERROR] : '';
+        $msg = (isset($_SESSION[Address::SESSION_ERROR])) ? $_SESSION[Address::SESSION_ERROR] : '';
 
         Address::clearMsgError();
 
