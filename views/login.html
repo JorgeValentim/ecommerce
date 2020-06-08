@@ -16,11 +16,13 @@
     <div class="container">
         <div class="row">                
             <div class="col-md-6">
+
                 {if="$error != ''"}
                 <div class="alert alert-danger">
                     {$error}
                 </div>
                 {/if}
+
                 <form action="/login" id="login-form-wrap" class="login" method="post">
                     <h2>Acessar</h2>
                     <p class="form-row form-row-first">
@@ -46,6 +48,7 @@
                 </form>                    
             </div>
             <div class="col-md-6">
+                
                 {if="$errorRegister != ''"}
                 <div class="alert alert-danger">
                     {$errorRegister}
@@ -67,7 +70,7 @@
                     <p class="form-row form-row-first">
                         <label for="phone">Telefone
                         </label>
-                        <input type="text" id="phone" name="phone" class="input-text" value="{$registerValues.name}">
+                        <input type="text" id="phone" name="phone" class="input-text" value="{$registerValues.phone}">
                     </p>
                     <p class="form-row form-row-last">
                         <label for="senha">Senha <span class="required">*</span>
